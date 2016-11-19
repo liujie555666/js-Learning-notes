@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul">
+    <li>1</li>
+    <!--&lt;!&ndash;-->
+    <!--&ndash;&gt;-->
+    <li>2</li>
+    <!--s324156-->
+    <li>3</li>
+</ul>
+<script>
+    var ulbox=document.getElementById("ul");
+    var chil=ulbox.childNodes;//会把换行当做节点来算,但ie578不会入
+    var huia=ulbox.children;//ie8会把注释节点加进去
+    alert(chil.length);
+    alert(huia.length);
+
+</script>
+</body>
+</html>

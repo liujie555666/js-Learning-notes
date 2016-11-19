@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+        .all ol li.current {
+            background: yellow;
+        }
+
+    </style>
+</head>
+<script src="匀速运动函数.js" type="text/javascript"></script>
+<body>
+<div class="all" id='all'>
+    <div class="screen">
+        <ul id="ul">
+            <li><img src="images/taobao/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/5.jpg" width="500" height="200"/></li>
+        </ul>
+
+    </div>
+</div>
+<script>
+    var box = document.getElementById("all");
+    var ul = document.getElementById("ul");
+    var ullis = ul.children;//这是一个动态的集合,若增加或删除后,会改变,
+    var li = ullis[0].cloneNode(true);
+    ul.appendChild(li);
+    var ol = document.createElement("ol");
+    box.appendChild(ol);//把ol增添到box中后
+    for(var i=0;i<ullis.length-1;i++){
+        var li=document.createElement("li");
+        li.innerHTML=i+1;//加内容,从1开始
+        ol.appendChild(li);
+    }
+    ol.children[0].setAttribute("class","current");
+    //3.开始动画
+    var ollis=ol.children;
+    for(var i=0,len=ollis.length;i<len;i++){
+        ollis[i].sx=i;
+        ollis[i].onmouseover=function () {
+            for(var j=0;j<len;j++){
+                ollis[j].setAttribute("class","");
+            }
+            ollis[this.sx].setAttribute("class","current");
+            animate(ul,-this.sx*500,10,20);
+            key=squ=this.sx;//人为干预,需要修正key与,squ的值
+        }
+    }
+    //4、循环播放
+    var timer=null;
+    var key=0;
+    var squ=0;
+    timer=setInterval(autoPlay,1500);//开启轮播图
+    function autoPlay() {
+      key++;
+        if(key>ullis.length-1){
+            ul.style.left=0;
+            key=1;//播放第六张,就是第一张,然后播放第二张,所以key=1;修正key值
+        }
+        animate(ul,-key*500,10,20);
+        squ++;
+        if(squ>ollis.length-1){
+            squ=0;
+        }
+            for(var j=0,len=ollis.length;j<len;j++){
+            ollis[j].setAttribute("class","")
+            }
+        ollis[squ].setAttribute("class","current");
+    }
+    box.onmouseover=function () {
+        clearInterval(timer);
+    }
+    box.onmouseout=function () {
+        timer=setInterval(autoPlay,1500);//开启轮播图
+    }
+
+</script>
+</body>
+</html>

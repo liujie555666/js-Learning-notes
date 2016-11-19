@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num=5;
+    function fn() {
+//        alert(arguments.callee);//是函数自己本身
+        alert(arguments.length);//是实参的个数
+//        fn.length  形参的个数
+        mun--;
+        if(num>=0)
+        {
+            setTimeout(arguments.callee);
+        }
+    }
+    setTimeout(fn,1000)
+</script>
+</body>
+</html>

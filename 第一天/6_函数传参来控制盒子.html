@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 20px;
+            display: none;
+        }
+    </style>
+    <script>
+        var box = document.getElementById(obj);
+        function fn(obj) {
+            var box = document.getElementById(obj);
+            box.style.display = "block";
+        }
+        function dc(obj) {
+            var box = document.getElementById(obj);
+            box.style.display = "none";
+        }
+    </script>
+</head>
+<body>
+<button onmouseover="fn('demo1')" onmouseout="dc('demo1')">第1个按钮</button>
+<button onmouseover="fn('demo2')" onmouseout="dc('demo2')">第2个按钮</button>
+<button onmouseover="fn('demo3')" onmouseout="dc('demo3')">第3个按钮</button>
+<button onmouseover="fn('demo4')" onmouseout="dc('demo4')">第4个按钮</button>
+<div id="demo1">1</div>
+<div id="demo2">2</div>
+<div id="demo3">3</div>
+<div id="demo4">4</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    window.onscroll=function () {
+//console.log(123);
+        //只能用于谷歌浏览器和没有声明 <!DOCTYPE html>
+//   console.log(document.body.scrollTop)
+        //除了ie678,最新的浏览器都认识.
+//        console.log(window.pageYOffset)
+//        //ie认识
+//        console.log(document.documentElement.scrollTop)
+        //兼容写法获取scollTop
+        var scollTop=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop;
+        console.log(scollTop);
+    }
+</script>
+</body>
+</html>

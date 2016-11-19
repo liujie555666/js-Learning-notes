@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font: 12px/34px Arial, Verdana, "\5b8b\4f53";
+        }
+
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .shout {
+            width: 1210px;
+            margin: 100px auto;
+            height: 34px;
+            line-height: 34px;
+        }
+        p{
+            width: 618px;
+            height: 35px;
+            border-bottom: 1px solid #C81623;
+
+        }
+        .shout #tou li{
+            float: left;
+            border-top: 1px solid #EDEDED;
+            list-style: none;
+            padding: 0 16px;
+            margin-left: -2px;
+            margin-right: -2px;
+            border-bottom: 1px solid #C81623;
+        }
+         #tou  li:first-child {
+            border-left: 1px solid #EDEDED;
+        }
+        #tou  li:last-child {
+            border-right: 1px solid #EDEDED;
+        }
+        div span{
+            float: left;
+            color: #666;
+        }
+        .shout #tou .show {
+            border: 1px solid #C81623;
+            border-top: 3px solid #C81623;
+            border-bottom: none;
+            height: 32px;
+            line-height:30px;
+            padding: 0 15px;
+        }
+        .shout #tou .show a{
+            color: #C81623;
+        }
+        #sps{
+            float: right;
+            width: 880px;
+        }
+        #sps li{
+            display: none;
+        }
+        #sps .swc{
+            display: block;
+        }
+        .ybs{
+            color: #C81623;
+        }
+
+    </style>
+    <script>
+        onload = function () {
+            var tou = document.getElementById("tou").getElementsByTagName("li");
+            var wei = document.getElementById("sps").getElementsByTagName("li");
+            var ysb = document.getElementById("tou").getElementsByTagName("a");
+            for (var i = 0, len = tou.length; i < len; i++) {
+                tou[i].index=i;
+                tou[i].onmouseover = function () {
+                for (var j = 0; j < len; j++) {
+                    wei[j].className = "";
+                    tou[j].className = "";
+                    ysb[j].className="";
+                }
+                    wei[this.index].className="swc";
+                    this.className = "show";
+                    ysb[this.index].className="ybs";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="shout">
+    <p style="float:left;">
+        <img src="" alt="">
+        <span>服装鞋包</span>
+    </p>
+    <div style="float:right;" id="tou">
+        <ul>
+            <li class="show"><a href="">大牌</a></li>
+            <span>|</span>
+            <li><a href="">男装</a></li>
+            <span>|</span>
+            <li><a href="">女装</a></li>
+            <span>|</span>
+            <li><a href="">鞋靴</a></li>
+            <span>|</span>
+            <li><a href="">箱包</a></li>
+            <span>|</span>
+            <li><a href="">内衣配饰</a></li>
+            <span>|</span>
+            <li><a href="">珠宝首饰</a></li>
+            <span>|</span>
+            <li><a href="">奢品礼品</a></li>
+            <span>|</span>
+            <li><a href="">奢华腕表</a></li>
+        </ul>
+
+    </div>
+    <div class="showsp" id="sps">
+        <ul>
+            <li class="swc"><img src="images/xftp1.jpg" alt=""></li>
+            <li><img src="images/xftp2.jpg" alt=""></li>
+            <li><img src="images/xftp3.jpg" alt=""></li>
+            <li><img src="images/xftp4.jpg" alt=""></li>
+            <li><img src="images/xftp5.jpg" alt=""></li>
+            <li><img src="images/xftp6.jpg" alt=""></li>
+            <li><img src="images/xftp7.jpg" alt=""></li>
+            <li><img src="images/xftp8.jpg" alt=""></li>
+            <li><img src="images/xftp9.jpg" alt=""></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

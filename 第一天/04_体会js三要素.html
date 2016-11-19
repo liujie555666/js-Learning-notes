@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="demo">
+</div>
+<button id="btn"> 增大盒子的宽</button>
+<button id="bth"> 增大盒子的高</button>
+<button id="btbgc"> 改变盒子的背景颜色</button>
+
+<script>
+    var btn=document.getElementById("btn");
+    var bth=document.getElementById("bth");
+    var btbgc=document.getElementById("btbgc");
+    var but=document.getElementById("demo");
+     btn.onclick=function () {
+         but.style.width="400px";
+     };
+     bth.onclick=function () {
+         but.style.height="600px";
+     };
+     btbgc.onclick=function () {
+         but.style.backgroundColor="blue";
+     };
+but.onmouseover=function () {
+    but.style.backgroundColor="#666";
+};
+but.onmouseout=function () {
+    but.style.backgroundColor="red";
+}
+
+</script>
+</body>
+</html>

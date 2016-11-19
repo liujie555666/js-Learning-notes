@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            text-align: center;
+            margin:100px auto;
+        }
+        span{
+            display: inline-block;
+            border: 1px solid #ccc;
+            width: 150px;
+            background-color: #ddd;
+            line-height: 20px;
+            height: 20px;
+            text-align: left;
+            padding-left: 14px;
+            color: dark;
+        }
+
+    </style>
+    <script>
+        onload=function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            $("txt").onblur=function () {
+                if(this.value=="") {
+                    $("result").style.background = "url(imges/wrong.png) no-repeat 0 3px";
+                    $("result").innerHTML="内容不能为空";
+                    $("result").style.border="1px soild red";
+                    $("result").style.color="#ff6b39";
+                    $("result").style.backgroundColor="#ffdcd0";
+                }
+                else  if (isNaN(this.value)){ $("result").style.background = "url(imges/wrong.png) no-repeat 0 3px";
+                    $("result").innerHTML="请输入数字";
+                    $("result").style.border="1px soild red";
+                    $("result").style.color="#ff6b39";
+                    $("result").style.backgroundColor="#ffdcd0";
+                }
+                else if(this.value>150||this.value<0){
+                    $("result").style.background = "url(imges/wrong.png) no-repeat 0 3px";
+                    $("result").innerHTML="请输入合理的成绩";
+                    $("result").style.border="1px soild red";
+                    $("result").style.color="#ff6b39";
+                    $("result").style.backgroundColor="#ffdcd0";
+                }
+                else {
+                    $("result").style.background = "url(imges/right.png) no-repeat 0 3px";
+                    $("result").innerHTML="输入正确";
+                    $("result").style.border="1px soild stygreen";
+                    $("result").style.color="#ff6b39";
+                    $("result").style.backgroundColor="green";
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+  <div class="box">
+      语文：<input type="text" id="txt">
+      <span id="result">请输入成绩</span>
+  </div>
+</body>
+</html>

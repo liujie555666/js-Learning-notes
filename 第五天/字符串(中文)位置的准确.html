@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getStringlengtn(txt) {
+    var len=0;//保存字符串的总长度
+        var c=-1;//存放字符的编码
+        for(var i=0;i<txt.length;i++)
+        {
+            c=txt.charCodeAt(i);
+            if(c>=0&&c<=127){
+                len++;
+            }else{
+                len+=2;
+            }
+        }
+        return len;
+    }
+    var txt="abc olkhj 客户经理哦i龙净环保欧虎";
+    alert(getStringlengtn(txt));
+
+</script>
+</body>
+</html>

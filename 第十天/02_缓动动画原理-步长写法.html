@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">开始</button>
+<div id="box"></div>
+</body>
+<script>
+    //leader+=(targer-leader)/10  以前写法;
+
+    var btn=document.getElementById("btn");
+    var box=document.getElementById("box");
+    var target=400;
+    //原理:offsetLeft+步长(不断变化的)
+    var timer=null;
+    btn.onclick=function () {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            //box.offsetleft是取整的;
+            if(target==box.offsetLeft){
+                clearInterval(timer);
+            }
+            var step=(target-box.offsetLeft)/10;
+            step=step>0?Math.ceil(step):Math.floor(step);
+            box.style.left=box.offsetLeft+step+"px";
+        },20)
+    }
+
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 454px;
+            width: 730px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #cricle{
+            list-style: none;
+            position: absolute;
+            left: 40%;
+            bottom:10px;
+        }
+        #cricle li{
+            float: left;
+            margin-left:5px;
+        }
+        #cricle span{
+            display: block;
+            width: 18px;
+            height: 18px;
+            border-radius:50%;
+            text-align: center;
+            line-height:18px;
+            background-color: rgba(0,0,0,.4);
+            color: whitesmoke;
+            cursor: pointer;
+        }
+        #cricle .current{
+            background-color: darkred;
+
+        }
+    </style>
+    <script>
+        onload=function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var imgs=$("slider").getElementsByTagName("img");
+            var cir= $("cricle");
+            for(i=0;i<imgs.length;i++)
+            {
+                var lis=document.createElement("li");
+                cir.appendChild(lis);
+                var spans=document.createElement("span");
+                spans.innerHTML=i+1;
+                lis.appendChild(spans);
+                if(i==0){
+                    spans.className="current";
+                }
+                spans.sx=i;
+                spans.onmouseover=function () {
+                   var sps=cir.getElementsByTagName("span");
+                    for(j=0;j<sps.length;j++)
+                   {
+                       sps[j].className='';
+                       imgs[j].parentNode.style.display="none";
+                   }
+                    imgs[this.sx].parentNode.style.display="block";
+                   this.className="current";
+                }
+            }
+
+            }
+
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul id="slider">
+        <li><img src="../imges/11.jpg" alt=""></li>
+        <li><img src="../imges/22.jpg" alt=""></li>
+        <li><img src="../imges/33.jpg" alt=""></li>
+        <li><img src="../imges/44.jpg" alt=""></li>
+        <li><img src="../imges/55.jpg" alt=""></li>
+        <li><img src="../imges/66.jpg" alt=""></li>
+    </ul>
+    <ul id="cricle"></ul>
+</div>
+</body>
+</html>

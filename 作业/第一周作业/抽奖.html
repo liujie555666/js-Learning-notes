@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .back {
+            width: 531px;
+            height: 531px;
+            margin: 100px auto;
+            background: url(images/back.png) no-repeat center center;
+            position: relative;
+        }
+
+        .pointer {
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            left: 50%;
+            margin-left: -87px;
+            top: 50%;
+            margin-top: -87px;
+            cursor: pointer;
+        }
+
+        .pointer img {
+            position: absolute;
+            bottom: -4px;
+            left: 3px;
+        }
+    </style>
+    <script>
+
+        onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            var time = null;
+            var m=0;
+            var j=0,i;
+            $("pot").onclick = function () {
+                i =3600+parseInt(Math.random()*100%45);
+//                clearInterval(time);
+                if(j==3){
+
+                    alert("您的次数已用完,请充值");
+                    clearInterval(time);
+                    j=0;
+                    window.location.href="https://www.baidu.com/";
+                }
+                else{
+//                console.log(i);
+                clearInterval(time);
+                time= setInterval(function () {
+                    m+=(i-m)/30;
+//                    console.log(m);
+                    $("pot").style.webkitTransform = "rotate("+m+ "deg)";
+                    if(m>=(i-1))
+                    {alert("很遗憾,没中奖!请继续努力!");
+//                        console.log("321");
+                    clearInterval(time);
+                        j++;
+                        console.log(j);
+
+                        m=0;
+                    }
+                },30);}
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="back">
+    <div class="pointer" id="pot">
+        <img src="images/pointer.png" alt="">
+    </div>
+</div>
+</body>
+</html>

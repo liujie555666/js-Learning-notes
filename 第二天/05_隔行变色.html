@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 300px;
+            border:1px solid #aaa;
+            margin: 100px auto;
+        }
+        ul{
+            width: 300px;
+        }
+        li{
+            list-style-type: none;
+            line-height: 30px;
+
+        }
+        li span{
+            margin: 5px;
+            cursor: default;
+        }
+        .current{
+            background-color: #fff !important;
+        }
+    </style>
+    <script>
+        onload=function () {
+            var lis=document.getElementsByTagName("li");
+            for(var i=0;i<lis.length;i++)
+            {
+                if (i%2==0){
+                    lis[i].style.backgroundColor="#eee";
+                }
+                else {
+                    lis[i].style.backgroundColor="#ccc";
+                }
+                lis[i].onmouseover=function () {
+                    this.className="current";
+                }
+                lis[i].onmouseout=function () {
+                    this.className="";
+                }
+                }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+        <li><span>人福医药</span><span>63300</span><span>19.73</span><span>9.98%
+</span></li>
+    </ul>
+</div>
+</body>
+</html>

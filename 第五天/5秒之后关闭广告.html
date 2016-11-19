@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            position: fixed;
+            top: 0;
+        }
+        #tp1{
+            left: 0;
+        }
+        #tp2{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="tp1">
+    <img src="../imges/1.gif" alt="">
+</div>
+<div id="tp2">
+    <img src="../imges/2.gif" alt="">
+</div>
+<script>
+
+    setTimeout(function () {
+        var yu=document.getElementsByTagName("div");
+        for(var i=0;i<yu.length;i++)
+        {
+            yu[i].style.display="none";
+        }
+    },5000)
+</script>
+</body>
+</html>

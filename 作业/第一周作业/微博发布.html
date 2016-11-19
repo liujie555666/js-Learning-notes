@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wai {
+            width: 600px;
+            height: 310px;
+            margin: 100px auto;
+            border: 1px solid #333;
+            /*text-align: center;*/
+            position: relative;
+
+        }
+
+        .wai textarea {
+            width: 450px;
+            height: 150px;
+            border: 1px solid #a9a9a9;
+            position: absolute;
+            top:30px;
+            left: 75px;
+            resize: none;
+            /*text-align: top;*/
+        }
+        .wai span{
+            position: absolute;
+            left:0;
+            top: 164px;
+        }
+        .wai button{
+            position: absolute;
+            top: 164px;
+            right:34px;
+        }
+        .wai ul{
+            width: 452px;
+            /*height: 120px;*/
+            /*position: absolute;*/
+            /*left:74px;*/
+            /*bottom: 6px;*/
+            /*overflow: auto;*/
+        }
+        li.show{
+            list-style: none;
+            width: 452px;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px dashed #ccc;
+        }
+        li a{
+            float: right;
+        }
+
+    </style>
+    <script>
+       onload=function () {
+
+        function $(id) {return document.getElementById(id);}
+        var bun=document.getElementsByTagName("button")[0];
+        bun.onclick=function () {
+            var uls=$("lkj").getElementsByTagName("ul")[0];
+
+            var libox=document.createElement("li");
+            libox.className="show";
+            var txt=$("txt");
+            libox.innerHTML=txt.value+" <a href='javascript:;'>删除</a>";
+            var lis=document.getElementsByTagName("li");
+            uls.insertBefore(libox,lis[0]);
+            txt.value="";
+            var as=uls.getElementsByTagName("a");
+            for(i=0,len=as.length;i<len;i++){
+//                var lis=document.getElementsByTagName("li");
+//            console.log(as);
+//                as[i].sx=i;
+                as[i].onclick=function () {
+//                   console(libox[this.sx].parentNode);
+//                    libox[this.sx].style.display="none";
+                    uls.removeChild(this.parentNode);
+//                    if(this.sx==0)
+//                    uls.removeChild(lis[this.sx]);
+//                else  uls.removeChild(lis[this.sx-1]);
+                }
+            }
+        }
+        $("txt").onfocus=function () {
+            this.value="";
+        };
+
+       }
+    </script>
+</head>
+<body>
+<div class="wai clearfix" id="lkj">
+    <span>微博发布：</span>
+    <textarea name="请输入微博" id="txt" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul id="jis"></ul>
+</div>
+</body>
+</html>

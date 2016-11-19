@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        onload=function () {
+            var box=document.getElementById("box");
+//            获取下面的兄弟
+//            var div=box.nextElementSibling;//ie578不认识
+//            div.style.backgroundColor="blue";
+//            获取上面的兄弟
+//            var pre=box.previousElementSibling;//ie578不认识
+//           pre.style.border="1px solid red";
+//            pre.style.height="15px";
+//            pre.style.margin="50px"
+            var iedic=box.previousSibling
+                    ;//获取上面的兄弟(只有ie578认识)
+          var bo=box.previousElementSibling||box.previousSibling;//(解决兼容性问题,前后顺序不能变 )
+            bo.style.width="153px";
+            bo.style.height="123px";
+            bo.style.border="1px dotted red";
+            var bod=box.nextElementSibling||box.nextSibling;
+//
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="spec"></div>
+<div class="spec1" id="box"></div>
+<div class="spec2">
+    <div>one</div>
+    <div>two</div>
+</div>
+</body>
+</html>

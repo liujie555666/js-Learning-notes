@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: darkmagenta;
+            position: absolute;
+        }
+        #run1{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn200">200</button>
+<button id="btn500">500</button>
+<div id="run"></div>
+<div id="run1"></div>
+<script>
+    function $(id) {return document.getElementById(id);}
+    var run=$("run");
+    var run1=$("run1");
+    $("btn200").onclick=function () {
+        animate(run,226,20);
+    }
+    $("btn500").onclick=function () {
+        animate(run,553,30);
+    }
+    //封装匀速运动
+    function animate(obj,endPoint,ms) {clearInterval(obj.timer);
+        var speed=endPoint>obj.offsetLeft?10:-10;
+        obj.timer=setInterval(function () {
+            var result=endPoint-obj.offsetLeft;
+            if(Math.abs(result)<10) {
+                obj.style.left=endPoint+"px";
+                clearInterval(obj.timer);
+            }else
+            obj.style.left=obj.offsetLeft+speed+"px";
+        },ms)
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            border: 1px solid #ccc;
+        }
+
+        /*.demo{*/
+        /*background-color: red;*/
+        /*}*/
+    </style>
+    <script>
+        onload = function () {
+            var divdemos = mygetElementsByClassName("demo", "box");
+            alert(divdemos.length);
+//            通过类名来获取元素节点 但ie5,6,7,8(不支持)
+//  ie9开始支持
+            function mygetElementsByClassName(classname, id) {
+                var $=function (id) {return document.getElementById(id);};
+//                判断浏览器是否支持
+                var dom;
+                if (id) {dom = $(id);}
+                else {dom = document;}
+                if (document.getElementsByClassName) {return dom.getElementsByClassName(classname);}
+//                 如果不支持,获取所有节点.
+                var arr = [];
+                var doms = dom.getElementsByTagName("*");
+//之后找出类名的节点.
+                for (var i = 0, len = doms.length; i < len; i++) {
+                    var classnames = doms[i].className.split(" ");
+                    for (var j = 0, le = classnames.length; j < le; j++) {
+                        if (classnames[j] == classname)
+                            arr.push(doms[i]);
+                    }
+                }
+                return arr;
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="demo"></div>
+<div class="demo test"></div>
+<div class="demo"></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="demo"></div>
+<div class="demo"></div>
+<div id="box">
+    <div class="demo"></div>
+    <div class="demo"></div>
+</div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

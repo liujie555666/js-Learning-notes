@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+<button id="btn200">200</button>
+<button id="btn400">400</button>
+<div id="run"></div>
+</body>
+<script>
+    function $(id) {return document.getElementById(id);}
+    var runbb=$("run");
+    $("btn200").onclick=function () {
+     animate(runbb,200,30,5)
+    }
+        $("btn400").onclick=function () {
+            animate(runbb,400,20,10);
+        }
+    function animate(obj,endPoint,ms,jl) {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            if(obj.offsetLeft>endPoint){
+                clearInterval(obj.timer);
+            }else {
+            obj.style.left=obj.offsetLeft+jl+"px";
+        }},ms);
+    }
+</script>
+</html>

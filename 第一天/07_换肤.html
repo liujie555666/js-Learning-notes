@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("imges/1.jpg") no-repeat center top;
+        }
+       .fat{
+           height: 200px;
+           width: 1000px;
+           background-color: rgba(0,0,0,.7);
+           margin: 0 auto;
+       }
+        .fat img{
+            float: left;
+            width: 160px;
+            height: 100px;
+            margin: 0 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="fat">
+    <div ><img src="imges/1.jpg" id="box1" alt=""></div>
+    <div><img src="imges/2.jpg"  id="box2"alt=""></div>
+    <div><img src="imges/3.jpg"  id="box3"alt=""></div>
+    <div><img src="imges/4.jpg"  id="box4"alt=""></div>
+    <div ><img src="imges/5.jpg" id="box5"alt=""></div>
+</div>
+<script>
+    var box1=document.getElementById("box1");
+    var box2=document.getElementById("box2");
+    var box3=document.getElementById("box3");
+    var box4=document.getElementById("box4");
+    var box5=document.getElementById("box5");
+    box1.onclick=function () {
+        document.body.style.backgroundImage="url(imges/1.jpg)";
+    }
+    box2.onclick=function () {
+        document.body.style.backgroundImage="url(imges/2.jpg)";
+    }
+    box3.onclick=function () {
+        document.body.style.backgroundImage="url(imges/3.jpg)";
+    }
+    box4.onclick=function () {
+        document.body.style.backgroundImage="url(imges/4.jpg)";
+    }
+    box5.onclick=function () {
+        document.body.style.backgroundImage="url(imges/5.jpg)";
+    }
+</script>
+</body>
+</html>

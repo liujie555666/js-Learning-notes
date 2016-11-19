@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .xiaomi {
+            width: 512px;
+            height: 400px;
+            overflow: hidden;
+            margin: 100px auto;
+            border: 1px solid #ff0000;
+            position: relative
+        }
+
+        .xiaomi span {
+            width: 100%;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            cursor: pointer;
+        }
+
+        .xiaomi .top {
+
+            top: 0;
+        }
+
+        .xiaomi .bottom {
+
+            bottom: 0;
+        }
+
+        #pic {
+            position: absolute;
+        }
+    </style>
+    <script>
+        onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            var num = 0;
+            var time = null;
+            $("picup").onmouseover = function () {
+                clearInterval(time);//防止品番创建time，第一次清空，无影响。
+                time = setInterval(function () {
+                    num -= 3;
+                    console.log(num);
+                    if (num >= -1070) {
+                        $("pic").style.top = num + "px";
+                    } else {
+                        clearInterval(time);//不需要时把他关了。
+                    }
+                }, 30);
+            }
+            $("picup").onmouseout=function () {
+                clearInterval(time);
+            }
+            $("picdown").onmouseover=function () {
+                clearInterval(time);
+                time=setInterval(function () {
+                    num+=3;
+                    console.log(num);
+                    if(num<=0){
+                        $("pic").style.top=num+"px";
+                    }else{
+                        clearInterval(time);
+                    }
+                },100);
+            }
+            $("picdown").onmouseout=function () {
+                clearInterval(time);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="xiaomi" id="demo">
+    <img src="../imges/mi.png" alt="" id="pic">
+    <span class="top" id="picup"></span>
+    <span class="bottom" id="picdown"></span>
+</div>
+
+</body>
+</html>

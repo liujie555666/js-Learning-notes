@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #demo{
+            width: 200px;
+            height: 12px;
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid #678;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        //通过js来获取盒子宽
+        var demoW=document.getElementById("demo");
+        //只可以拿到行内式的宽
+        console.log(demoW.style.width);
+        //返回对象的宽和高(offsetWidth&&offsetHight)
+//        demoW.offsetWidth="500";
+        console.log(demoW.offsetWidth);
+        console.log(demoW.offsetHeight);
+        //只能获取属性值(只读),不能设置属性:包括(border\padding和自己的宽和高)不包括(margin).
+
+
+
+    </script>
+</body>
+</html>

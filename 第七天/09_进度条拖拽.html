@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .sco{
+            width: 400px;
+            height: 8px;
+            background-color: #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .bar{
+            width: 10px;
+            height: 22px;
+            background-color: #369;
+            position: absolute;
+            top: -7px;
+            left: 0;
+            cursor: pointer;
+        }
+        .mask{
+            width: 0px;
+            height: 100%;
+            background-color: #369;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="sco" class="sco">
+    <div id="bar" class="bar"></div>
+    <div class="mask"></div>
+    <div class="demospan">已经走了0%</div>
+</div>
+</body>
+<script>
+    var sco=document.getElementById("sco");
+    var bar=sco.children[0];
+    var mask=sco.children[1];
+    var demospan=sco.children[2];
+    bar.onmousedown=function (asa) {
+        var asa=asa||window.event;
+        var leftv=asa.clientX-this.offsetLeft;
+        var that=this;
+        document.onmousemove=function (asa) {
+            var asa=asa||window.event;
+            that.style.left=asa.clientX-leftv+"px";
+            var val=parseInt(that.style.left);if(val<=0){
+                that.style.left=0;
+            }else if(val>390){
+                that.style.left=390+"px";
+            }
+            mask.style.width=that.style.left;
+            demospan.innerHTML="已经走了:"+parseInt(parseInt(that.style.left)/390*100)+"%";
+        }
+    }
+    document.onmouseup=function () {
+        document.onmousemove=null;
+        //当鼠标抬起不做任何处理,关闭onmousemove事件;
+    }
+</script>
+</html>

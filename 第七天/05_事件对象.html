@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body style="width: 10000px;height: 10000px;">
+<div id="demo"></div>
+</body>
+<script>
+    var demo =document.getElementById("demo");
+    document.onclick=function (aa) {
+
+        //兼容性写法
+        var aa=aa||window.event;
+
+        //ie678没有page!!!
+
+        console.log(aa.screenX);
+        //相对与该屏幕的位置
+        console.log(aa.clientX);//相对网页的水平位置(当前可见区域(窗口))
+        console.log(aa.pageX);//相对网页的水平位置
+        console.log("1111111111111111111111111");
+        console.log(aa.screenY);
+        //相对与该屏幕的位置
+        console.log(aa.clientY);//相对网页的水平位置(当前可见区域(窗口))(类似与绝对定位)!!ie678不支持
+        // !!ie678console.log(window.event.clientY);
+        console.log(aa.pageY);//相对网页(整个网页)的水平位置(类似与固定定位)
+    }
+    console.log("1111111111111111111111111");
+
+
+</script>
+</html>

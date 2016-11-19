@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+            left: 112px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    var demo=document.getElementById("demo");
+    console.log(demo.style.left);//得到的是空值,只能得到行内式
+//    console.log(demo.currentStyle.left);
+//    console.log(demo.currentStyle.position);
+//    console.log(demo.currentStyle.backgroundColor);
+//    console.log(demo.currentStyle.width);
+//    //ie中得到当前盒子的样式,currentStyle;
+    //除了ie其他浏览器
+    console.log(window.getComputedStyle(demo,null).width);
+    console.log(window.getComputedStyle(demo,null).left);
+</script>
+</body>
+</html>

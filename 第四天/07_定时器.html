@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        onload=function () {
+            setInterval(fn,500);
+
+            var i=0;
+            var demo=document.getElementById("demo");
+            function fn() {
+//                document.write(i+"<br>");
+               demo.innerHTML=i;
+
+                demo.style.marginLeft=(i*10)+"px";
+//                demo.style.marginTop=i*30+"px";
+            i++;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1111</li>
+    <li>222</li>
+    <li>33</li>
+    <li>4</li>
+</ul>
+<button>添加节点</button>
+<script>
+    var btns=document.getElementsByTagName("button")[0];
+    btns.onclick=function () {
+//        alert("123");
+        var libox=document.createElement("li");
+        libox.style.color="red";
+        libox.innerHTML="id";
+        var ulbox=document.getElementsByTagName("ul")[0];
+//        ulbox.appendChild(libox);//放在其子的后面
+        var lis=document.getElementsByTagName("li");
+//        ulbox.insertBefore(libox,lis[1]);
+//        ulbox.insertBefore(libox,null);//=appendChild
+//        ulbox.removeChild(lis[1]);//删除第几个元素;
+        var boxs=ulbox.cloneNode(true);//false;只传外盒子,不传里面
+        ulbox.parentNode.appendChild(ulbox);
+
+    }
+
+</script>
+</body>
+</html>

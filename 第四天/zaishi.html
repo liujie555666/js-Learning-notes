@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #tpbiao{
+            position: absolute;
+            left: 40%;
+            bottom: 10px;
+            list-style: none;
+        }
+        #tpbiao li{
+            float: left;
+            margin-right: 5px;
+        }
+        #tpbiao li span{
+            display: block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,.6);
+            color: #cccccc;
+            text-align: center;
+            line-height: 18px;
+            cursor: pointer;
+        }
+        #tpbiao li span.show{
+            background-color: #C81623;
+        }
+    </style>
+    <script>
+        onload=function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var uln=$("tp").getElementsByTagName("li");
+            for(i=0;i<uln.length;i++){
+            var newli=document.createElement("li");
+            $("tpbiao").appendChild(newli);
+            var newspan=document.createElement("span");
+            newspan.innerHTML=i+1;
+            newli.appendChild(newspan);
+                if(i==0){
+                    newspan.className="show";
+                }
+                newspan.sx=i;
+                newspan.onmouseover=function () {
+                var spans=$("tpbiao").getElementsByTagName("span");
+                for(j=0;j<uln.length;j++){
+                    uln[j].style.display="none";
+                    spans[j].className="";
+               }
+               uln[this.sx].style.display="block";
+                this.className="show";
+            }
+        }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul id="tp">
+        <li><img src="../imges/11.jpg" alt=""></li>
+        <li><img src="../imges/22.jpg" alt=""></li>
+        <li><img src="../imges/33.jpg" alt=""></li>
+        <li><img src="../imges/44.jpg" alt=""></li>
+        <li><img src="../imges/55.jpg" alt=""></li>
+        <li><img src="../imges/66.jpg" alt=""></li>
+    </ul>
+    <ul id="tpbiao"></ul>
+</div>
+</body>
+</html>

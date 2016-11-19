@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 600px;
+            height: auto;
+            margin: 100px auto;
+            border: 1px solid #345;
+            /*text-align: center;*/
+        }
+
+        textarea {
+            resize: none;
+            width: 450px;
+            margin-top: 30px;
+        }
+
+        #list {
+            list-style: none;
+            padding: 0 80px;
+        }
+
+        #list li {
+            border-bottom: 1px dashed #cccccc;
+            line-height: 30px;
+        }
+
+        #list li a {
+            float: right;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var btn = document.getElementsByTagName("button")[0];
+            btn.onclick = function () {
+                var txt = document.getElementById("txt").value;
+                if (!txt) {
+                    return;
+                }
+                var newli = document.createElement("li");
+                newli.innerHTML = txt + "<a href='javascript:;'>删除</a>";
+                var lis = document.getElementById("list").getElementsByTagName("li");
+                (btn.nextElementSibling || btn.nextSibling).insertBefore(newli, lis[0]);
+                document.getElementById("txt").value = "";
+
+                var ul = document.getElementById("list");
+
+                var liss = ul.getElementsByTagName("li");
+                var ass = ul.getElementsByTagName("a");
+                for (i = 0; i < liss.length; i++) {
+                    ass[i].sx=i;
+                    ass[i].onclick = function () {
+                        ul.removeChild(liss[this.sx]);
+//                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+
+    微博发布: <textarea name="" id="txt" cols="40" rows="12"></textarea>
+    <button>发布</button>
+    <ul id="list"></ul>
+</div>
+</body>
+</html>

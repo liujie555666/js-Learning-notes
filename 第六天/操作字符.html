@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">my name is lilei!</div>
+<div id="div2">What's your name?</div>
+<button id="btn1">concat</button><span></span><br>
+<button id="btn2">silce(3)</button><span></span><br>
+<button id="btn3">silce(-6)</button><span></span>
+<button id="btn4">silce(6,8)</button><span></span>
+<button id="btn5">silce(6)</button><span></span>
+<button id="btn6">silce(-1)</button><span></span>
+</body>
+</html>
+<script>
+    var div1 =document.getElementById("div1").innerHTML;
+    var div2 =document.getElementById("div2").innerHTML;
+//    var btn1 =document.getElementById("btn1");
+//    var btn2 =document.getElementById("btn2");
+//    var btn3 =document.getElementById("btn3");
+    function onBtnclick(id,txt) {
+        var btn=document.getElementById(id);
+        btn.onclick=function () {
+            this.nextSibling.innerHTML=txt;
+        }
+    }
+
+    onBtnclick("btn1",div1.concat(div2));
+    onBtnclick("btn2",div1.slice(3,6));
+    onBtnclick("btn3",div1.slice(-6));
+    onBtnclick("btn4",div1.slice(6,8));
+    onBtnclick("btn5",div1.slice(6));
+//    onBtnclick("btn6",div1.substr(-1));//(-1)ie678不兼容
+
+    onBtnclick("btn6",div1.substr(-1));//ie678兼容
+
+    //    btn1.onclick=function () {
+//      var txt=  div1.innerHTML.concat(div2.innerHTML);
+//       this.nextSibling.innerHTML=txt;
+//    }
+//    btn2.onclick=function () {
+//      var txt=  div1.innerHTML.slice(3);
+//       this.nextSibling.innerHTML=txt;
+//    }
+//    btn3.onclick=function () {
+//      var txt=  div1.innerHTML.slice(3,10);
+//       this.nextSibling.innerHTML=txt;
+//    }
+    //切割字符串,slice(a,b),a表示从第a开是到第b,(不包括第b);
+    //a不可以省略,b可以.a可以为-1
+
+</script>

@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 303px;
+            height: 199px;
+            border: 1px solid #D2E1F1;
+            margin: 100px auto;
+        }
+        .dt {
+            padding-left: 10px;
+            line-height: 30px;
+            font-weight: 700;
+            color: #0873CB;
+
+        }
+        .dd{
+            padding: 10px;
+        }
+        .dd-b{
+            width: 250px;
+            height: 74px;
+            margin:28px 0 0 20px;
+            overflow: hidden;
+        }
+        .dd-b ul li{
+            list-style: none;
+            width: 250px;
+            height: 74px;
+            font-size: 14px;
+            line-height: 26px;
+            color: #323f5a;
+        }
+        .dd-b ul li a{
+        color: #3b639f;
+        }
+        .icon{
+            width: 50px;
+            height: 50px;
+            float: left;
+            background: url(images/astroIcon.png) no-repeat ;
+            margin-right: 10px;
+        }
+        .yunshi{
+            width: 80px;
+            height: 13px;
+            display: inline-block;
+            background: url(images/yunshi.png) no-repeat left top;
+            position: relative;
+
+        }
+        .start {
+            width: 32px;
+            height: 13px;
+            position: absolute;
+            top:0;
+            left: 0;
+            background: url(images/yunshi.png) no-repeat left  bottom;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+//            alert("9"*8);
+            function $(id) {
+                return document.getElementById(id);
+
+            }
+            var arr = [4,6,4,4,4,7,7,4,7,7,4,4];
+            var sel = document.getElementById("sel");
+            sel.onchange = function () {
+                $("ico").style.backgroundPosition = "0 "+ (-this.value*50)+"px";
+                $("content").style.marginTop="-74"*[this.value]+"px";
+                $("star").style.width = arr[this.value]*8 + "px";
+            }
+        }
+    </script>
+
+</head>
+<body>
+<div class="box">
+    <div class="dt">星座运势</div>
+    <div class="dd">
+        <div class="dd-t">
+            <div class="icon" id="ico"></div>
+            <div class="right">
+                <select name="" id="sel">
+                    <option value="0">白羊座 03.21-04.19</option>
+                    <option value="1">金牛座 04.20-05.20</option>
+                    <option value="2">双子座 05.21-06.21</option>
+                    <option value="3">巨蟹座 06.22-07.22</option>
+                    <option value="4">狮子座 07.23-08.22</option>
+                    <option value="5">处女座 08.23-09.22</option>
+                    <option value="6">天秤座 09.23-10.23</option>
+                    <option value="7">天蝎座 10.24-11.22</option>
+                    <option value="8">射手座 11.23-12.21</option>
+                    <option value="9">摩羯座 12.22-01.19</option>
+                    <option value="10">水瓶座 01.20-02.18</option>
+                    <option value="11">双鱼座 02.19-03.20</option>
+                </select>
+                <div class="jrys">今日运势：<span class="yunshi">
+                    <span class="start" id="star"></span>
+                </span></div>
+            </div>
+        </div>
+        <div class="dd-b" >
+            <ul id="content">
+                <li>感情上火药味增加了，你需要开始留意沟通问题，不要过于急躁。但与此同时你也很享受沟通带来的精...<a href="">[详细]</a></li>
+                <li>你和家人伴侣之间的火药味越来越厉害，近期需要小心，沟通时避免太过固执强势。对财务可能产生一...<a href="">[详细]</a></li>
+                <li>你需要留意职场人际，不知不觉某些话语可能得罪了他人，留下话柄。工作上火气攻心，也可能会影响...<a href="">[详细]</a></li>
+                <li>你的状态在逐渐走低，许多迷乱的想法缠绕在你心头，健康也可能开始下滑，让你觉得非常疲乏，有睡...<a href="">[详细]</a></li>
+                <li>这几天你的火气有些大，需要留意和家人的相处。若是过于强调自我立场，固执己见，可能会引发许多...<a href="">[详细]</a></li>
+                <li>最近你的灵感相当丰富，可能为你指引许多前路方向。今天的你非常注重思考，有些人可能会外出走动...<a href="">[详细]</a></li>
+                <li>临近周末，你可能非常想要出门逛逛，给自己一个小假期，暂时忘记工作中的种种。因此特别适合约上..<a href="">[详细]</a></li>
+                <li>这个周末你可能有些耐不住性子，对工作上的事情非常急切。也可能会受一些社交关系的干扰，实则内...<a href="">[详细]</a></li>
+                <li>想得好好的计划可能因为一时冲动而破坏，总之不要输在了临门一脚。今日的你和伴侣之间关系还算不...<a href="">[详细]</a></li>
+                <li>终于来到周末，你也从低迷的状态开始逐渐复苏了。伴侣和情感关系是你目前所关注的，看似与他人感...<a href="">[详细]</a></li>
+                <li>最近你与他人沟通充满了火药味，工作的忙碌可能会给你带来一些火气，和另一半沟通可要注意耐心一...<a href="">[详细]</a></li>
+                <li>你的某些想法太过急躁，可能会使计划的开展太快，还没有看清真相，工作方面需要小心，沟通问题开...<a href="">[详细]</a></li>
+            </ul></div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

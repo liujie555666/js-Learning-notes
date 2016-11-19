@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+<button id="btn200">开始200</button>
+<button id="btn400">开始400</button>
+<div id="box"></div>
+</body>
+<script>
+    //leader+=(targer-leader)/10  以前写法;
+
+    var btn200=document.getElementById("btn200");
+    var btn400=document.getElementById("btn400");
+    var box=document.getElementById("box");
+    btn200.onclick=function () {
+animate(box,500);
+    }
+    btn400.onclick=function () {
+        animate(box,1000);
+    }
+    function animate(obj,endpoint) {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            //1计算步长
+            var step=(endpoint-obj.offsetLeft)/10;
+            step=step>0?Math.ceil(step):Math.floor(step);
+            obj.style.left=obj.offsetLeft+step+"px";
+            if(obj.offsetLeft==endpoint){
+                clearInterval(obj.timer);
+            }
+        },20);
+    }
+//    var target=400;
+//    //原理:offsetLeft+步长(不断变化的)
+//    var timer=null;
+//    btn.onclick=function () {
+//        clearInterval(timer);
+//        timer=setInterval(function () {
+//            //box.offsetleft是取整的;
+//            if(target==box.offsetLeft){
+//                clearInterval(timer);
+//            }
+//            var step=(target-box.offsetLeft)/10;
+//            step=step>0?Math.ceil(step):Math.floor(step);
+//            box.style.left=box.offsetLeft+step+"px";
+//        },20)
+//    }
+
+</script>
+</html>

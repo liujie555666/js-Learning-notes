@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn200">btn200</button>
+<button id="btn400">btn400</button>
+<div id="box"></div>
+</body>
+<script>
+    var btn200=document.getElementById("btn200");
+    var btn400=document.getElementById("btn400");
+    var box=document.getElementById("box");
+    function getstyle(obj,attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];//ie浏览器
+        }else{
+            return window.getComputedStyle(obj,null)[attr];//w3c浏览器
+        }
+    }
+    btn200.onclick=function () {
+        animate(box,800,"top");
+    }
+        btn400.onclick=function () {
+            animate(box,800,"left");
+    }
+    function animate(obj,endpoint,attr) {
+clearInterval(obj.timer);
+        obj.timer=setInterval(function () {
+            //计算方法 盒子本身的属性+步长
+            var current=parseInt(getstyle(obj,attr));//去掉px
+            //计算步长
+            var step=(endpoint-current)/10;
+            step=step>0?Math.ceil(step):Math.floor(step);
+            obj.style[attr]=step+current+"px";
+        if (current==endpoint){
+            clearInterval(obj.timer);
+        }
+        },20)
+    }
+
+</script>
+</html>

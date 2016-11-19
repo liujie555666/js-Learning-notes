@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        /*img{*/
+        /*vertical-align: top;*/
+        /*}*/
+        /*/清除图片上下方向的3px间隙/*/
+        .slider {
+            position: relative;
+            width: 490px;
+            height: 170px;
+            margin: 100px auto;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        .inner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .inner ul {
+            position: absolute;
+            left: 0;
+            width: 500%;
+        }
+
+        .inner ul li {
+            float: left;
+        }
+
+        .slider ol {
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            bottom: 10px;
+        }
+
+        .slider ol li {
+            float: left;
+            width: 18px;
+            height: 18px;
+            background-color: rgba(255,255,255,.6);
+            margin-right: 10px;
+            line-height: 18px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider ol li.current {
+            background-color: darkred;
+            color: #D2E1F1;
+        }
+    </style>
+</head>
+<body>
+<div class="slider">
+    <div class="inner">
+        <ul id="lul">
+            <li><img src="imager/01.jpg" alt=""></li>
+            <li><img src="imager/02.jpg" alt=""></li>
+            <li><img src="imager/03.jpg" alt=""></li>
+            <li><img src="imager/04.jpg" alt=""></li>
+            <li><img src="imager/05.jpg" alt=""></li>
+        </ul>
+    </div>
+    <ol id="lol">
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    setInterval(function () {
+        console.log("123");
+        m+=(b-m)/10;
+        $("lul").style.left=m+"px";
+    }, 30);
+    var llis = $("lol").getElementsByTagName("li");
+    var m=0;
+    var b=0;
+    for (i = 0; i < llis.length; i++) {
+        llis[i].sx = i;
+        llis[i].onmouseover = function () {
+//                llis[j].className="";
+            for(j=0;j<llis.length;j++)
+            {
+                llis[j].setAttribute("class","");
+            }
+//            this.className="current";
+            this.setAttribute("class","current");//这个比较官方
+            b=-490*(this.sx);
+
+        }
+    }
+
+</script>

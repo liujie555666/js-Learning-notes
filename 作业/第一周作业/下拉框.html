@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        select{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="sel1">
+    <option value="0">湖北省</option>
+    <option value="1">广东省</option>
+    <option value="2">青海</option>
+</select>
+<select name="" id="sel2">
+    <option value="0">武汉</option>
+    <option value="1">襄阳</option>
+</select>
+<select name="" id="sel3">
+    <option value="">武汉</option>
+    <option value="">江夏</option>
+    <option value="">东西湖</option>
+</select>
+<script>
+    function $(id) {return document.getElementById(id);}
+   //删除某节点的所有子节点
+    function shanchuzijiedian(id,chengshi) {
+        var id1=$(id).children;
+        for(var i=id1.length-1;i>=0;i--){
+            $(id).removeChild(id1[i]);
+        }
+       for(var j=0;j<chengshi.length;j++){
+           var cre=document.createElement("option");
+           cre.innerHTML=chengshi[j];
+           cre.value=j;
+           $(id).appendChild(cre);
+       }
+    }
+    //根据数组
+    var hubei1=["武汉","襄阳"];
+    var hubei11=["武汉","江夏","东西湖"];
+    var hubei12=["襄阳","襄州","谷城","宜城"];
+    var guangdong2=["广州","江门"];
+    var guangdong21=["广州","从化","花都"];
+    var guangdong22=["江门","开平","台山","江海"];
+var qinghai3=["西宁","海东"];
+var qinghai31=["西宁","大通"];
+var qinghai32=["平安","互助","乐都"];
+    $("sel1").onchange=function () {
+     switch(this.value) {
+         case"0":shanchuzijiedian("sel2",hubei1);
+             shanchuzijiedian("sel3",hubei11);
+             $("sel2").onchange=function () {
+//                 shanchuzijiedian("sel3",(hubei1+(this.value+1));
+                 switch (this.value){
+                     case "0":             shanchuzijiedian("sel3",hubei11);break;case "1":             shanchuzijiedian("sel3",hubei12);break;default :break;
+                 }
+             }
+         break;
+         case"1":shanchuzijiedian("sel2",guangdong2);
+             shanchuzijiedian("sel3",guangdong21);
+             $("sel2").onchange=function () {
+                 switch (this.value){
+                     case "0":             shanchuzijiedian("sel3",guangdong21);break;case "1":             shanchuzijiedian("sel3",guangdong22);break;default :break;
+                 }
+             }
+             break;
+         case"2":shanchuzijiedian("sel2",qinghai3);
+             shanchuzijiedian("sel3",qinghai31);
+             $("sel2").onchange=function () {
+                 switch (this.value){
+                     case "0":             shanchuzijiedian("sel3",qinghai31);break;case "1":             shanchuzijiedian("sel3",qinghai32);break;default :break;
+                 }
+             }
+             break;
+         default:break;
+     }
+    }
+    $("sel2").onchange=function () {
+//                 shanchuzijiedian("sel3",(hubei1+(this.value+1));
+        switch (this.value){
+            case "0":             shanchuzijiedian("sel3",hubei11);break;case "1":             shanchuzijiedian("sel3",hubei12);break;default :break;
+        }
+    }
+
+</script>
+</body>
+</html>

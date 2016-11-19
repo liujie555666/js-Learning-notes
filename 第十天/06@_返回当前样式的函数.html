@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            background-color: pink;
+            z-index: 2;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    var demo=document.getElementById("demo");
+    //获取盒子的某个属性兼容性写法
+    function getstyle(obj,attr) {
+        if(obj.currentStyle){
+            return obj.currentStyle[attr];//ie浏览器
+        }else{
+            return window.getComputedStyle(obj,null)[attr];//w3c浏览器
+        }
+    }
+    console.log(getstyle(demo,"width"));
+    console.log(getstyle(demo,"z-index"));
+</script>
+</body>
+</html>

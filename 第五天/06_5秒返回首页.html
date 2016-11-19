@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo"><a href='http://www.baidu.com'>本页面将在5秒返回首页</a></div>
+
+</body>
+<script>
+//    var count = 50;
+//    var time = setInterval(function () {
+//        count--;
+//        var demo = document.getElementById("demo");
+//        demo.innerHTML = "<a href='http://www.baidu.com'>本页面将在" + count + "秒返回首页</a>";
+//        if(count<=0){
+//            window.location.href="http://www.baidu.com";
+//            clearInterval(time);
+//            count=50;
+//        }
+//    }, 1000)
+//    上面是setInterval实现的
+setTimeout(go,1000);
+var count=5;
+    function go() {
+        count--;
+        var demo = document.getElementById("demo");
+        demo.innerHTML = "<a href='http://www.baidu.com'>本页面将在" + count + "秒返回首页</a>";
+        if(count<=0){
+            window.location.href="http://www.baidu.com";
+            count=5;
+        }
+        else {
+            setTimeout(go,1000);
+        }
+    }
+</script>
+</html>

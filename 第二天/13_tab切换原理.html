@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 400px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        .bottom div{
+            width: 100%;
+            height: 300px;
+            background-color: pink;
+            display: none;
+        }
+        .btncurrent,.mor{
+            background-color: purple;
+        }
+    </style>
+    <script>
+        onload=function () {
+            var bns=document.getElementsByTagName("button");
+            var divs=document.getElementById("divs").getElementsByTagName("div");
+            for(var i=0;i<bns.length;i++)
+            {
+                bns[i].index=i;
+                bns[i].onmouseover=function () {
+                    for (var j=0;j<bns.length;j++)
+                    {
+                        bns[j].className="";
+                    }
+                    this.className="btncurrent";
+                    for(var m=0;m<divs.length;m++)
+                    {
+                        divs[m].style.display="none";
+                    }
+                    divs[this.index].style.display="block";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+  <div class="box">
+      <div class="top">
+          <button class="mor">第1个</button>
+          <button>第2个</button>
+          <button>第3个</button>
+          <button>第4个</button>
+          <button>第5个</button>
+      </div>
+      <div class="bottom" id="divs">
+          <div style="display: block">第1个盒子</div>
+          <div>第2个盒子</div>
+          <div>第3个盒子</div>
+          <div>第4个盒子</div>
+          <div>第5个盒子</div>
+      </div>
+  </div>
+</body>
+</html>

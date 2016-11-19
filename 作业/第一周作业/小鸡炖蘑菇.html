@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .xj {
+            width: 850px;
+            height: 400px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .tupian {
+            width: 850px;
+            height: 200px;
+        }
+
+        .tupian img {
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .hhh {
+            width: 830px;
+            height: 150px;
+            border: 1px solid red;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .top {
+            width: 810px;
+            height: 10px;
+            background-color: #666;
+            margin: 75px auto;
+        }
+
+        .xia {
+            width: 810px;
+            height: 10px;
+            background-color: blue;
+            position: absolute;
+            top: 286px;
+            left: 20px;
+            display: none;
+        }
+        #jt{
+            width:24px;
+            height: 12px;
+            position: absolute;
+            top: 196px;
+            left: 100px;!important;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            var imgs = $("tupian").getElementsByTagName("img");
+            var jt = document.getElementById("jt");
+            var xia = document.getElementById("xia");
+            var a = 0, b = 0;
+            for (i = 0; i < imgs.length; i++) {
+                imgs[i].index = i;
+
+                imgs[i].onclick = function () {
+                    for (j = 0; j < imgs.length; j++) {
+                        imgs[j].style.border = "";
+                    }
+                    imgs[this.index].style.border = "1px solid red";
+                    target = 100 + 210 * this.index;
+                    xia.style.display = "block";
+                    b = (810 / 4 * (this.index + 1));
+                }
+                var start,target;
+                time= setInterval(function () {
+                    start = start + (target - start) / 10;
+                console.log(start);
+                    jt.style.left = start + "px";
+                    a = a + (b - a) / 10;
+                    xia.style.width = a + "px";
+                }, 30)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="xj">
+    <div class="tupian" id="tupian">
+        <img src="images/8b307a1ed49aee33d333ff16b56f_800_800.c1.jpg" alt="">
+        <img src="images/8b307a1ed49aee33d333ff16b56f_800_800.c1.jpg" alt="">
+        <img src="images/8b307a1ed49aee33d333ff16b56f_800_800.c1.jpg" alt="">
+        <img src="images/8b307a1ed49aee33d333ff16b56f_800_800.c1.jpg" alt="">
+    </div>
+    <img src="images/jt.png" alt="" id="jt">
+    <div class="hhh">
+        <div class="top">
+        </div>
+        <div class="xia" id="xia">
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .search{
+            width: 300px;
+            height: 30px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .search input{
+            width: 200px;
+            height: 25px;
+            padding-left: 10px;
+        }
+        .search label{
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: #ccc;
+            font-size: 12px;
+            cursor: text;
+        }
+    </style>
+    <script>
+onload=function () {
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $("txt").oninput=function () {
+        if (this.value==""){
+            $("message").style.display="block";
+        }
+        else {
+            $("message").style.display="none";
+        }
+    }
+}
+    </script>
+</head>
+<body>
+   <div class="search">
+       <input type="text" id="txt">
+       <label for="txt" id="message">全场2.8元起</label>
+   </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a:nth-last-of-type()
+    </style>
+</head>
+<body>
+<input type="file" id="file"><span></span>
+<script>
+    function $(id) {return document.getElementById(id);}
+    $("file").onchange=function () {
+        var index=this.value.indexOf(".");
+        var sub=this.value.substr(index+1,index+4);
+        if(sub==="jpg")
+        {
+            alert("可以上传");
+        }
+        else {
+            alert("")
+        }
+    }
+
+</script>
+</body>
+</html>

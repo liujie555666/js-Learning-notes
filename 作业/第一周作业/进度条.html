@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .w{
+            width: 1138px;
+            margin: 50px auto;
+        }
+        #tpxj li{
+            width: 280px;
+            height: 240px;
+            background:url(images/8b307a1ed49aee33d333ff16b56f_800_800.c1.jpg) no-repeat;
+            background-size: 100% 100%;
+            list-style: none;
+            float: left;
+            margin-right:6px;
+            border-radius: 16px;
+            cursor: pointer;
+        }
+        #tpxj li.boe{
+            border: 2px solid #4777B9;
+            width: 276px;
+            height: 236px;
+        }
+        #tpxj li:last-child{
+            margin: 0;
+        }
+        .jd{
+            height: 100px;
+            padding:10px;
+            border: 1px solid #4777B9;
+            margin-top: 5px;
+            position: relative;
+        }
+        .dip{
+            border-radius: 5px;
+            margin-top:20px;
+            height: 12px;
+            background-color: #676767;
+            position: relative;
+            overflow: hidden;
+        }
+        #jit{
+            width: 26px;
+            height: 20px;
+            background: url(images/jt.png)no-repeat;
+            position: absolute;
+            left:130px;
+            top:-12px;
+        }
+        #sp{
+            width:280px;
+            height: 12px;
+            position: absolute;
+            background-color: #297AC9;
+        }
+        .clearfix:before,.clearfix:after{
+            display: table;
+            content: "";
+        }
+        .clearfix:after{
+            clear: both;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+    </style>
+</head>
+<body>
+ <div class="w">
+     <div class="xj"></div>
+     <ul id="tpxj">
+         <li class="boe"></li>
+         <li></li>
+         <li></li>
+         <li></li>
+     </ul>
+     <div class="clearfix"></div>
+     <div class="jd">
+         <div id="jit"></div><span>课程一 您学习了25%</span>
+         <div class="dip">
+             <div id="sp"></div>
+         </div>
+     </div>
+ </div>
+ <script>
+     var lis=document.getElementById("tpxj").getElementsByTagName("li");
+     var jit=document.getElementById("jit");
+     var sp=document.getElementById("sp");
+     for(var i=0;i<lis.length;i++){
+         lis[i].sx=i;
+         lis[i].onclick=function () {
+             for( var j=0;j<lis.length;j++){
+                 lis[j].setAttribute("class","");
+             }
+             lis[this.sx].setAttribute("class","boe");
+             a=130+(this.sx)*280;
+             b=280*(this.sx+1);
+jit.nextSibling.innerHTML="课程一 您学习了"+25*(this.sx+1)+"%";
+         }
+         var time=null,m=0,j=0;
+        time= setInterval(function () {
+             m+=(a-m)/20;
+            j+=(b-j)/20;
+             jit.style.left=m+"px";
+            sp.style.width=j+"px";
+         },30)
+     }
+ </script>
+</body>
+</html>

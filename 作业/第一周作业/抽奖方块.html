@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .dahe{
+            width: 397px;
+            height: 397px;
+            border: 1px solid red;
+            margin: 100px auto;
+            position: relative;
+        }
+        .dahe li{
+            position: absolute;
+            /*float: left;*/
+            /*margin-left:-1px;*/
+            list-style: none;
+            width: 98px;
+            height: 98px;
+            /*background-color: #0873CB;*/
+            border: 1px solid blue;
+        }
+        #dia{
+            width: 196px;
+            height: 196px;
+            border: 1px solid gold;
+            background-color: #ff6b39;
+            text-align: center;
+            line-height:196px;
+cursor: pointer;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+        #lil li.red{
+            background-color: red;
+        }
+        #lil li.blue{
+            background-color: blue;
+        }
+        #lil li.yellow{
+            border: 1px solid green;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="dahe">
+    <ul id="lil">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="dia">抽奖</div>
+</div>
+<script>
+    var lis=document.getElementById("lil").getElementsByTagName("li");
+    for(var i=0;i<lis.length;i++){
+        if(i%2==0){
+            lis[i].className="yellow";
+        }
+        else {
+            lis[i].className="blue";
+        }
+        if(i>=0&&i<4){
+lis[i].style.top="0px";
+            lis[i].style.left=99*i+"px";
+        }
+        if(i>=4&&i<7){
+            lis[i].style.top=99*(i-3)+"px";
+lis[i].style.right="0px";
+        }
+        if(i>=7&&i<10){
+            lis[i].style.bottom="0px";
+            lis[i].style.right=99*(i-6)+"px";
+        }
+        if(i>=10&&i<=11){
+            lis[i].style.left="0px";
+            lis[i].style.bottom=99*(i-9)+"px";
+        }
+    }
+    var btn=document.getElementById("dia");
+    var time=null,j=0,a=0,b;
+    btn.onclick=function () {
+        b=360+parseInt(Math.random()*100%24);
+//        console.log(b);
+        clearInterval(time);
+        time= setInterval(function () {
+            for(var m=0;m<lis.length;m++){
+                if(m%2==0){
+                    lis[m].className="yellow";
+                }
+                else {
+                    lis[m].className="blue";
+                }
+            }
+            if(j==12){
+                j=0;
+            }
+           else{
+               lis[j].className="red";
+            j++;
+            a+=(b-a)/5;
+                console.log(a);
+           }
+        if(a>=b-1){
+                clearInterval(time);
+            j=0;
+            }
+            console.log(a);
+        },30);
+    }
+
+
+</script>
+</body>
+</html>

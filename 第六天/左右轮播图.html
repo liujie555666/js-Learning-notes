@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        #box {
+            width: 520px;
+            height: 280px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ad ul{
+            width: 500%;
+            position: absolute;
+        }
+
+        .ad ul li {
+            float: left;
+        }
+        #arr{
+            height: 60px;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            margin-top:-30px;
+            display: none;
+            cursor: pointer;
+        }
+        #arr span{
+            width: 40px;
+            height: 60px;
+            line-height:60px;
+            text-align: center;
+            font-size: 40px;
+            font-weight:700;
+            background-color:rgba(0,0,0,.3);
+            color: #333333;
+        }
+        #arr span:hover{
+            color: #D2E1F1;
+        }
+        #left{
+            float: left;
+        }
+        #right{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="imager/1.jpg" alt=""></li>
+            <li><img src="imager/2.jpg" alt=""></li>
+            <li><img src="imager/3.jpg" alt=""></li>
+            <li><img src="imager/4.jpg" alt=""></li>
+            <li><img src="imager/5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div id="arr">
+        <span id="left"><</span><span id="right">></span>
+    </div>
+</div>
+<script>
+    function $(id) {return document.getElementById(id);}
+    $("box").onmouseover=function () {
+        $("arr").style.display="block";
+    }
+    $("box").onmouseout=function () {
+        $("arr").style.display="none";
+    }
+    var m=0,b=0;
+    $("right").onclick=function () {
+b-=520;
+    }
+    $("left").onclick=function () {
+        b+=520;
+    }
+    setInterval(function () {
+        if(b>0){
+            b=0;
+        }
+        else if (b<-4*520){
+            b=-4*520;
+        }
+        m+=(b-m)/10;
+        $("imgs").style.left=m+"px";
+    },30)
+</script>
+</body>
+</html>

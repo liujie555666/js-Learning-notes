@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .shuiG {
+            width: 500px;
+            margin: 100px auto;
+        }
+    </style>
+    <script>
+        onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            var btn = document.getElementsByName("button");
+
+            btn[0].onclick = function () {
+                var a = $("txt").value;
+                alert(a);
+                switch (a) {
+                    case"苹果":
+                        alert("苹果一块一个");
+                        break;
+                    case"西瓜":
+                        alert("西瓜八块一个");
+                        break;
+                    case"梨":
+                        alert("梨五毛一个");
+                        break;
+                    case"香蕉":
+                        alert("香蕉两块一个");
+                        break;
+                    case"橘子":
+                        alert("橘子三块一个");
+                        break;
+                    case"柚子":
+                        alert("柚子五块一个");
+                        break;
+                    default:
+                        alert("没有该水果");
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="shuiG">
+    <h1>我们的水果真的很便宜</h1>
+    <input type="text" id="txt">
+    <button>查询</button>
+</div>
+</body>
+</html>

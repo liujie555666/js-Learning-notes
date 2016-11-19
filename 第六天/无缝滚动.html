@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;}
+        ul{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+        }
+        .box{
+            width: 600px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .box ul li{
+            float: left;
+        }
+        .box ul{
+            width: 300%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="scroll">
+    <ul>
+        <li><img src="imager/011%20(1).jpg" alt=""></li>
+        <li><img src="imager/011%20(2).jpg" alt=""></li>
+        <li><img src="imager/011%20(3).jpg" alt=""></li>
+        <li><img src="imager/011%20(4).jpg" alt=""></li>
+        <li><img src="imager/011%20(1).jpg" alt=""></li>
+        <li><img src="imager/011%20(2).jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    var scroll=document.getElementById("scroll");
+    var ul=scroll.children[0];
+    var n=0;//控制left值
+    var time=null;
+    function gogo() {
+        n--;
+        if(n==-1200){
+            n=0;
+        }
+        ul.style.left=n+"px";
+    }
+//    time=setInterval(gogo,10);
+    scroll.onmouseover=function () {
+        clearInterval(time);
+    }
+    scroll.onmouseout=function () {
+        time=setInterval(gogo,10);
+    }
+</script>
+</body>
+</html>

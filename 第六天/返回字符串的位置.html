@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+字符串：<input type="text">索引字符串 <input type="text">
+<button>从前面开始</button>
+<button>从后面开始</button>
+<script>
+    var btn=document.getElementsByTagName("button");
+    var int=document.getElementsByTagName("input");
+    btn[0].onclick=function () {
+        for(var i=0;i<int[0].value.length;i++)
+        {
+            if(int[0].value.charAt(i)===int[1].value)
+                alert(i);
+        }
+        alert(int[0].value.indexOf(int[1].value));
+        //indexof根据字符返回从前面字符串找到索引字符的位置
+
+//        alert(a);
+    }
+    btn[1].onclick=function () {
+//        var int=document.getElementsByTagName("input");
+        for(var i=int[0].value.length-1;i>=0;i--)
+        {
+            if(int[0].value.charAt(i)===int[1].value)
+                alert(i);
+        }
+        alert(int[0].value.lastIndexOf(int[1].value));
+
+        //lastIndexOf根据字符返回从后面字符串找到索引字符的位置
+//        alert(a);
+    }
+</script>
+</body>
+</html>

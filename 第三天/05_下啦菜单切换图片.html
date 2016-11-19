@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: url(../imges/1.jpg) no-repeat center top;
+        }
+    </style>
+    <script>
+        onload=function () {
+
+         var select=document.getElementById("sel");
+        select.onchange=function () {
+switch (this.value){
+    case "1":document.body.style.backgroundImage="url(../imges/1.jpg)";
+        break;
+    case "2":document.body.style.backgroundImage="url(../imges/2.jpg)";
+        break;case "3":document.body.style.backgroundImage="url(../imges/3.jpg)";
+    break;case "4":document.body.style.backgroundImage="url(../imges/4.jpg)";
+    break;
+    default:document.body.style.backgroundImage="url(../imges/1.jpg)";
+        break;
+}
+        }}
+    </script>
+</head>
+<body>
+<select name="" id="sel">
+    <option value="1">好好学习</option>
+    <option value="2">天天向上</option>
+    <option value="3">五六七八</option>
+    <option value="4">一二三四</option>
+
+</select>
+</body>
+</html>

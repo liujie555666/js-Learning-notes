@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: darkcyan;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击</button>
+<div id="run"></div>
+<script>
+    function $(id) {return document.getElementById(id);}
+    // 从当前位置移动到l400的位置;
+//    var timer=null,m=0;
+//    $("btn").onclick=function () {
+//        clearInterval(timer)
+//        timer=setInterval(function () {
+//            m+=10;
+//            $("run").style.left=m+"px";
+//            if(m>400){
+//                clearInterval(timer);
+////                m=0;
+//            }
+//        },30)
+//    }
+    //以前写法
+    // 匀速运动 动画的基本原理 盒子的offsetleft+步长;
+    var timer=null,m=0;
+    $("btn").onclick=function () {
+        clearInterval(timer);
+        timer=setInterval(function () {
+            if($("run").offsetLeft>400){
+                clearInterval(timer);
+            }else {
+                $("run").style.left = $("run").offsetLeft + 10 + "px";
+            }
+        },30);
+
+    }
+</script>
+</body>
+</html>

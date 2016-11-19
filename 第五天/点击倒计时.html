@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text"/>
+<button id="btn">点击发送短信</button>
+<script>
+    var btn=document.getElementById("btn");
+    var count=5;
+    btn.onclick=function () {
+        this.disabled=true;
+         setInterval(function () {
+             count--;
+             btn.innerHTML="还剩余"+count+"秒";
+         },1000);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 20px;
+            position: absolute;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<button>开始</button>
+<div></div>
+</body>
+</html>
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    var div = document.getElementsByTagName("div")[0];
+    var time = null;
+    var m = 0;b=1000;
+    btn.onclick = function () {
+        var c=1;
+        clearInterval(time);
+        time = setInterval(function () {
+          m+=(b-m)/20;
+            if (m >=1000) {
+                clearInterval(time);
+               m=0;
+            }
+            else {
+                div.style.left = m+ "px";
+            }
+        }, 30);
+    }
+</script>
+
+
+

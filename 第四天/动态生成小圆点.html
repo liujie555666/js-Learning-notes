@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin: 0; padding: 0; }ul{list-style: none;}
+        .box{
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle{
+            position: absolute;
+            bottom: 10px;
+            left:40%;
+        }
+        .circle ul li{
+            float: left;
+            margin: 5px;
+        }
+        .circle ul li span{
+            display: block;
+            text-align: center;
+            width: 18px;
+            height: 18px;
+            border-radius:50%;
+            background-color: #000;
+            color: #cccccc;
+            cursor: pointer;
+            line-height:18px;
+        }
+        .circle span.current{
+            background-color: darkred;
+        }
+        .show{
+            display: block;
+        }
+        .notshow{
+            display: none;
+        }
+    </style>
+    <script>
+        onload=function () {
+            var scroll=document.getElementById("sroll");
+            var circle=document.createElement("div");
+            circle.className="circle";
+            scroll.appendChild(circle);
+            var ulCircle=document.createElement("ul");
+            circle.appendChild(ulCircle);
+            var newli=document.getElementById("sider-li").children;
+            for(i=0,len=newli.length;i<len;i++)
+            {   var nli=document.createElement("li");
+                var newspan=document.createElement("span");
+                if(i==0){
+                     newspan.className="current";
+                }
+                newspan.innerHTML=i+1;
+                nli.appendChild(newspan);
+                ulCircle.appendChild(nli);
+            }
+            var sps=document.getElementsByTagName("span");
+            var imgs=document.getElementsByTagName("img");
+            for(i=0,len=sps.length;i<len;i++)
+            {
+                sps[i].sx=i;
+
+                sps[i].onclick=function () {
+                  for (j=0;j<len;j++)
+                  {
+                       imgs[j].className="notshow";
+                  }
+                    imgs[this.sx].className="show";
+                }
+                sps[i].onmouseover=function () {
+                for(j=0;j<len;j++)
+                {
+                    imgs[j].className="notshow";
+                    sps[j].className="";
+                }
+                sps[this.sx].className="current";
+                    imgs[this.sx].className="show";
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="sroll">
+    <div class="slider">
+        <ul id="sider-li">
+            <li><img src="../imges/11.jpg" alt="" class="show"></li>
+            <li><img src="../imges/22.jpg" alt=""></li>
+            <li><img src="../imges/33.jpg" alt=""></li>
+            <li><img src="../imges/44.jpg" alt=""></li>
+            <li><img src="../imges/55.jpg" alt=""></li>
+            <li><img src="../imges/66.jpg" alt=""></li>
+
+        </ul>
+    </div>
+</div>
+</body>
+</html>

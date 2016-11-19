@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 3000px;
+            width: 3000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //返回滚动信息
+    function scroll() {
+        if(window.pageYOffset!=null){
+            return {
+                left:window.pageXOffset,top:window.pageYOffset
+            };
+        }else if(document.compatMode=="CSS1Compat"){
+            //判断有没有声明DTD  CSS1Compat标准的浏览器模式
+            return {
+                left:document.documentElement.scrollLeft,top:document.documentElement.scrollTop
+            };
+
+        }
+        return {left:document.body.scrollLeft,top:document.body.scrollTop};
+    }
+    window.onscroll=function () {
+    console.log(scroll().top);
+    console.log(scroll().left);
+    }
+</script>
+</body>
+</html>

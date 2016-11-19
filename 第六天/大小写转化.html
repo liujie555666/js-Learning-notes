@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="big">这是大标题</div>
+<div id="small">这是小标题</div>
+<input type="text" id="txt">
+<button id="btn">发布</button>
+</body>
+</html>
+<script>
+    function $(id) {return document.getElementById(id);}
+    $("btn").onclick=function () {
+        $("big").innerHTML=$("txt").value.toUpperCase();
+        //转换为大写
+        $("small").innerHTML=$("txt").value.toLocaleLowerCase();
+//转换为小写
+    }
+</script>

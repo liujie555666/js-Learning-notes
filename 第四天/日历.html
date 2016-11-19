@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 152px;
+            height: 180px;
+            background-color: #368;
+            margin: 100px auto;
+            text-align: center;
+        }
+        .box p{
+            text-align: center;
+            line-height:60px;
+            color: #cccccc;
+            font-size: 14px;
+        }
+        .box span{
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            font-size: 60px;
+            background-color: #3b639f;
+            line-height:80px;
+        }
+    </style>
+    <script>
+        onload=function () {
+            var box=document.getElementById("box");
+            var boys=box.children;
+            var date= new Date();
+            //getFullYear是获取那一年
+            //getMonth是获取那一月,但是月份是0-11;
+            //getDay是获取星期几,星期日是0,星期一是1;
+         var zj=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
+            boys[0].innerHTML=date.getFullYear()+"年"+(date.getMonth()+1)+"月"+date.getDate()+"日"+" "+zj[date.getDay()];
+          boys[1].innerHTML=date.getDate();
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <p></p>
+    <span></span>
+</div>
+</body>
+</html>

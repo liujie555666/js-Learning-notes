@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>点击</button>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+    function un() {
+        
+    }
+    btn.onclick=function (event) {
+        alert("点");
+    };
+    var body=document.getElementsByTagName("body")[0];
+    body.onclick=function (event) {
+        alert("321");
+        var event=event||window.event;
+        if(event&&event.stopPropagation)
+            event.stopPropagation();//w3c标准写法ie678不支持
+        //ie678
+        else
+            event.cancelBubble=true;
+    }
+    window.onclick=function () {
+        alert("window");
+    }
+</script>
+</body>
+</html>

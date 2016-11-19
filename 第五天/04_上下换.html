@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #divb{
+            width: 512px;
+            height: 400px;
+            position: relative;
+            margin: 200px auto;
+            border: 1px solid #e00;
+            overflow: hidden;
+        }
+        #divb div{
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            left: 0;
+            cursor: pointer;
+        }
+        #diva{
+            top: 0;
+        }
+        #divc{
+            bottom: 0;
+        }
+        #pic{
+            position: absolute;
+        }
+    </style>
+    <script>
+        onload=function () {
+            function $(id) {return document.getElementById(id);}
+            var num=0;
+            var time=null;
+            $("diva").onmouseover=function () {
+              clearInterval(time);
+              time=setInterval(function () {
+
+                    if(num>=-1068)
+                {
+                $("pic").style.top=num+"px";num-=3;
+                }else{
+                clearInterval(time);
+                    }
+            },10)
+        }
+//            $("diva").onmouseout=function () {
+//                clearInterval(time);
+//            }
+
+
+            $("divc").onmouseover=function () {
+                clearInterval(time);
+                time=setInterval(function () {
+
+                    if(num<=2)
+                    {
+                        $("pic").style.top=num+"px";num+=3;
+                    }else{
+                        clearInterval(time);
+                    }
+                },10)
+            }
+            $("divc").parentNode.onmouseout=function () {
+                clearInterval(time);
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="divb">
+    <img src="../imges/mi.png" alt="" id="pic">
+    <div id="diva"></div>
+    <div id="divc"></div>
+</div>
+</body>
+</html>

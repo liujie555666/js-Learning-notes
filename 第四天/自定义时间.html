@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 200px;
+            margin: 100px auto;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    
+</div>
+<script>
+    var date = new Date("2016/8/5 17:57:00");
+    function daoJiShi() {
+    var nowDate = Date.now();//毫秒
+    var cz = date.getTime() - nowDate;
+    var second = cz/1000;
+    //多少天
+    var day = parseInt(second/(60*60*24));
+    //多少分钟
+    var minutes = parseInt(second /60%60);
+    //多少小时
+    var hour = parseInt(second/3600%24);
+    var miao = parseInt(second%60);
+        var box = document.getElementById("box");
+        box.innerHTML = "促销倒计时:" + day + "天" + hour + "小时" + minutes + "分钟" + miao + "秒";
+    }
+    setInterval(daoJiShi,1000);
+
+</script>
+</body>
+</html>

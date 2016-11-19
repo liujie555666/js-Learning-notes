@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num =10;
+    function fn() {
+        alert(num);
+        alert("我是一个自定义的函数");
+    }
+    fn();
+var  fun=function () {
+    alert("直接量声明");
+  }
+//  fun();
+    var fun2=new Function("var a =1;var b=2 ;alert(a+b)");
+    fun2();
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<button id="btn200">btn200</button>
+<button id="btn400">btn400</button>
+<div id="box"></div>
+</body>
+<script>
+    var btn200 = document.getElementById("btn200");
+    var btn400 = document.getElementById("btn400");
+    var box = document.getElementById("box");
+    btn200.onclick = function () {
+        animate(box,{width:400,height:300,left:620,top:350},function () {
+            animate(box,{width:600,height:100,left:120,top:150});
+        });
+    }
+    btn400.onclick = function () {
+        animate(box,{width:500,height:100,left:120,top:150},function () {
+            animate(box,{width:400,height:300,left:620,top:350});
+        });
+    }
+    //获取盒子的某个属性兼容性写法
+    function getstyle(obj, attr) {
+        if (obj.currentStyle) {
+            return obj.currentStyle[attr];//ie浏览器
+        } else {
+            return window.getComputedStyle(obj, null)[attr];//w3c浏览器
+        }
+    }
+    //多个属性的运动框架封装
+    function animate(obj, attrs,fn) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag=true;
+            for (var attr in attrs) {//传进来是那个属性,而且他的值是多少
+                var current = parseInt(getstyle(obj, attr));
+                var step=(attrs[attr]-current)/10;
+                step=step>0?Math.ceil(step):Math.floor(step);
+                obj.style[attr]=current+step+"px";
+                if(current!=attrs[attr]){
+                    flag=false;
+                }
+            }
+            if(flag){
+                clearInterval(obj.timer);
+                if(fn){
+                    fn();//当定时器停止了,动画就结束了.如果有回调函数了,就回调函数了.
+                }
+            }
+
+        }, 20)
+    }
+</script>
+</html>

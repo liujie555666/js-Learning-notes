@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            text-align: center;
+            margin:100px auto;
+        }
+        span{
+            display: inline-block;
+            border: 1px solid #ccc;
+            width: 150px;
+            background-color: #ddd;
+            line-height: 20px;
+            height: 20px;
+            text-align: left;
+            padding-left: 14px;
+            color: dark;
+        }
+      .wrong{
+          background:#ffdcd0 url(imges/wrong.png) no-repeat 0 3px;
+          border: 1px soild red;
+          color: #ff6b39;
+      }
+        .right{
+            background:green url(imges/right.png) no-repeat 0 3px;
+            border: 1px soild stygreen;
+            color:aqua ;
+        }
+    </style>
+    <!--<script>-->
+        <!--onload=function () {-->
+            <!--function $(id) {-->
+                <!--return document.getElementById(id);-->
+            <!--}-->
+            <!--$("txt").onblur=function () {-->
+                <!--if(this.value=="") {-->
+                    <!--$("result").innerHTML="内容不能为空";-->
+                    <!--$("result").className="wrong";-->
+                <!--}-->
+                <!--else  if (isNaN(this.value)){-->
+                    <!--$("result").innerHTML="请输入数字";-->
+                    <!--$("result").className="wrong";-->
+                <!--}-->
+                <!--else if(this.value>150||this.value<0){-->
+                    <!--$("result").innerHTML="请输入合理的成绩";-->
+                    <!--$("result").className="wrong";-->
+
+                <!--}-->
+                <!--else {-->
+                    <!--$("result").innerHTML="输入正确";-->
+                    <!--$("result").className="right";-->
+                <!--}-->
+            <!--}-->
+
+
+        <!--}-->
+    <!--</script>-->
+</head>
+<body>
+  <div class="box">
+      语文：<input type="text" id="txt">
+      <span id="result">请输入成绩</span>
+  </div>
+</body>
+</html>

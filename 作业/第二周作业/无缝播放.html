@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #big1,#big2{
+            width: 384px;
+            height: 214px;
+            overflow: hidden;
+            margin-bottom:20px;
+            position: relative;
+        }
+        #big3,#big4{
+            width: 500px;
+            height: 214px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom:20px;
+        }
+        img{
+            vertical-align: top;
+        }
+        #big1 img,#big2 img {
+            margin-bottom:20px;
+        }
+        .nr1{
+            position: absolute;
+            top: 1px;
+        }
+        .nr2{
+            position: absolute;
+            /*left:1px;*/
+            width: 500%;
+        }
+        .nr2 img{
+            margin-right:5px;
+            float: left;
+        }
+    </style>
+    <script src="my.js" type="text/javascript"></script>
+    <script>
+        onload=function () {
+         var time1=null,time2=null,time3=null,time4=null,j=0,i=-234,a=0,b=-389;
+//            var big=document.children;
+            var big1=$("big1");
+            var big2=$("big2");
+            var big3=$("big3");
+            var big4=$("big4");
+            var nr11=big1.children[0];
+            var nr12=big2.children[0];
+            var nr21=big3.children[0];
+            var nr22=big4.children[0];
+//            function gogo(time,) {
+//
+//            }
+            big1.onmouseout=function () {
+                clearInterval(time1);
+                time1=setInterval(function () {
+                    nr11.style.top=j+"px";
+                    j--;
+                    if(j==-234){
+                        j=0;
+                    }
+            },30);}
+            time1=setInterval(function () {
+                nr11.style.top=j+"px";
+                j--;
+                if(j==-234){
+                    j=0;
+                }
+            },30);
+                big1.onmouseover=function () {
+                    clearInterval(time1);
+                }
+                big2.onmouseout=function () {
+                    clearInterval(time2);
+                    time2=setInterval(function () {
+                    nr12.style.top=i+"px";
+                    i++;
+                    if(i==0){
+                        i=-234;
+                    }
+            },30);
+                }
+            time2=setInterval(function () {
+                nr12.style.top=i+"px";
+                i++;
+                if(i==0){
+                    i=-234;
+                }
+            },30);
+                big2.onmouseover=function () {
+                    clearInterval(time2);
+                }
+                big3.onmouseout=function () {
+                    clearInterval(time3);
+                time3=setInterval(function () {
+                    nr21.style.left=a+"px";
+                    a--;
+                    if(a==-389){
+                        a=0;
+                    }
+            },30);}
+            time3=setInterval(function () {
+                nr21.style.left=a+"px";
+                a--;
+                if(a==-389){
+                    a=0;
+                }
+            },30);
+                big3.onmouseover=function () {
+                    clearInterval(time3);
+                }
+                big4.onmouseout=function () {
+                    clearInterval(time4);
+                time4=setInterval(function () {
+                    nr22.style.left=b+"px";
+                    b++;
+                    if(b==0){
+                        b=-389;
+                    }
+            },30);
+                }
+            time4=setInterval(function () {
+                nr22.style.left=b+"px";
+                b++;
+                if(b==0){
+                    b=-389;
+                }
+            },30);
+                big4.onmouseover=function () {
+                    clearInterval(time4)
+                }
+//            for(var m=1;m<big.length;m++){
+//                big1.onmouseout=function () {
+//            time=setInterval(function () {
+//                 nr11.style.top=j+"px";
+//                 nr12.style.top=i+"px";
+//                 nr21.style.left=a+"px";
+//                console.log(a);
+//                 nr22.style.left=b+"px";
+//                j--;i++;a--;b++;
+//                if(j==-234*2){
+//                    j=0;
+//                }if(i==0){
+//                    i=-234*2;
+//                }
+//                if(a==-667){
+//                    a=-278;
+//                }
+//                if(b==-278){
+//                    b=-667;
+//                }
+//            },10);
+//
+////        }
+//            big1.onmouseover=function () {
+//                clearInterval(time);
+//            }
+        }
+    </script>
+</head>
+<body>
+<div id="big1">
+    <div class="nr1">
+        <img src="images/bg3.jpg" alt="">
+        <img src="images/bg3.jpg" alt="">
+    </div>
+</div>
+<div id="big2"><div class="nr1">
+    <img src="images/bg3.jpg" alt="">
+    <img src="images/bg3.jpg" alt="">
+</div></div>
+<div id="big3"><div class="nr2">
+    <img src="images/bg3.jpg" alt="">
+    <img src="images/bg3.jpg" alt="">
+    <img src="images/bg3.jpg" alt="">
+</div></div>
+<div id="big4">
+    <div class="nr2">
+    <img src="images/bg3.jpg" alt="">
+    <img src="images/bg3.jpg" alt="">
+    <img src="images/bg3.jpg" alt="">
+</div>
+</div>
+</body>
+</html>

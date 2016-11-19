@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+        }
+        .nav{
+            width: 800px;
+            height: 42px;
+            margin: 100px auto;
+            background: #fff url(imager/rss.png)no-repeat right center;
+            border-radius: 10px;
+            position: relative;
+        }
+        #cloud{
+            position: absolute;
+            display: block;
+            width: 83px;
+            height: 42px;
+            background: url(imager/cloud.gif)no-repeat left top;
+        }
+        .nav ul{
+            position: absolute;
+        }
+        .nav ul li{
+            float: left;
+            width: 83px;
+            height: 42px;
+            text-align: center;
+            line-height:42px;
+            cursor: pointer;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+<div class="nav" id="nav">
+    <span id="cloud"></span>
+    <ul>
+        <li>首页新闻</li>
+        <li>师资力量</li>
+        <li>活动策划</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>上海校区</li>
+        <li>广东校区</li>
+    </ul>
+</div>
+<script>
+    var cloud=document.getElementById("cloud");
+    var nav=document.getElementById("nav");
+    var ul=nav.children[1];
+    var lis=ul.children;
+    var a=0,b=0,current=0;
+    for(var i=0,len=lis.length;i<len;i++){
+//        lis[i].sx=i;
+        lis[i].onmouseover=function () {
+            b=this.offsetLeft;
+        }
+        lis[i].onclick=function () {
+            current=this.offsetLeft;
+        }
+
+    }
+    ul.onmouseout=function () {
+        b=current;
+    }
+    setInterval(function () {
+        a+=(b-a)/5;
+        cloud.style.left=a+"px";
+    },30);
+</script>
+</body>
+</html>

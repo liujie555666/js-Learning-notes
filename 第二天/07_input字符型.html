@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        onload=function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var box=document.getElementsByTagName("button");
+            box[0].onclick=function () {
+                var value=$("txt").value;//表单元素通过value获取的值是字符串(string);
+                alert(value);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<button>点击</button>
+</body>
+</html>

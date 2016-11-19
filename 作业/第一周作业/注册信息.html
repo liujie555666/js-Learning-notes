@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #fff;
+        }
+
+        .hearer {
+            height: 30px;
+            background-color: #036663;
+            padding-left: 30px;
+            line-height: 30px;
+        }
+        .hearer p{
+            cursor: pointer;
+        }
+        #zhuc {
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            border: 5px solid #eee;
+            display: none;
+        }
+
+        .zhuc1 {
+            height: 25px;
+            background-color: #7C9299;
+            border-bottom: 1px solid #369;
+            line-height: 25px;
+            cursor: move;
+        }
+
+        .zhuc1 p {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="hearer"><p>注册信息</p></div>
+<div id="zhuc">
+    <div class="zhuc1" id="zhuc1">
+        <span>注册信息 (可以拖拽)</span>
+        <p>【关闭】</p>
+    </div>
+</div>
+<script>
+    var zhuc = document.getElementById("zhuc");
+    var zhuc1 = document.getElementById("zhuc1");
+    var gb=zhuc.children[0].children[1];
+    var dk=zhuc.previousElementSibling||zhuc.previousSibling;
+    dk.onclick=function () {
+        zhuc.style.display="block";
+    }
+    gb.onclick=function () {
+        zhuc.style.display="none";
+    }
+    zhuc.onmousedown = function (asa) {
+        var asa = asa || window.event;
+        var leftv = asa.clientX - this.offsetLeft;
+        console.log("leftv:" + leftv);
+        var topf = asa.clientY - this.offsetTop;
+        console.log("topf:" + topf);
+//        if(topf>25){
+//            topf=null;
+//            zhuc.onmousemove = null;
+//    }
+        zhuc.onmousemove = function (asa) {
+            var asa = asa || window.event;
+            this.style.left = asa.clientX - leftv + "px";
+            console.log(asa.clientX);
+            console.log("this.style.left:"+parseInt(this.style.left));
+            this.style.top = asa.clientY - topf + "px";
+            console.log(asa.clientY);
+            console.log("this.style.top:"+parseInt(this.style.top));
+            window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+        }
+    }
+    zhuc.onmouseup = function () {
+        zhuc.onmousemove = null;
+        //当鼠标抬起不做任何处理,关闭onmousemove事件;
+    }
+    //    bar.onmousedown=function (asa) {
+    //        var asa=asa||window.event;
+    //        var leftv=asa.clientX-this.offsetLeft;
+    //        var that=this;
+    //        document.onmousemove=function (asa) {
+    //            var asa=asa||window.event;
+    //            that.style.left=asa.clientX-leftv+"px";
+    //            var val=parseInt(that.style.left);if(val<=0){
+    //                that.style.left=0;
+    //            }else if(val>390){
+    //                that.style.left=390+"px";
+    //            }
+    //            mask.style.width=that.style.left;
+    //            demospan.innerHTML="已经走了:"+parseInt(parseInt(that.style.left)/390*100)+"%";
+    //        }
+    //    }
+
+</script>
+</body>
+</html>

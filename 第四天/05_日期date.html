@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //创建一个日期对象
+    var date=new Date();
+    console.log(date);
+//返回Unix时间戳,这个比较常用
+    var mss=date.getTime();
+    console.log(mss);
+    //这个不常用
+    console.log(Date.now());
+    var ms=date.valueOf();
+    console.log(ms);
+     //直接使用
+    console.log(Date.now());
+    console.log(+new Date());
+    //加+表示时间戳
+    //不+表示当前时间的直接输出
+</script>
+</body>
+</html>

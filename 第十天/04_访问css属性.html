@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box" style="width: 500px"></div>
+<script>
+    var box=document.getElementById("box");
+//    console.log(box.offsetWidth);
+    console.log(box.style.width);
+    var w="width";
+    console.log(box.style[w]);
+
+</script>
+</body>
+</html>

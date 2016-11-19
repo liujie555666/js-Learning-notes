@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            width: 100%;
+        }
+
+        .top {
+            position: fixed;
+            right: 50px;
+            bottom: 60px;
+            display: none;
+        }
+    </style>
+    <script src="my.js" type="text/javascript"></script>
+    <script>
+        onload = function () {
+            var gotop = $("gotop");
+            window.onscroll = function () {
+                scroll().top > 10 ? show(gotop) : hidden(gotop);
+                leader = scroll().top;
+            }
+            var leader = 0, target = 0;
+            var time = null;
+            gotop.onclick = function () {
+                clearInterval(time);
+                target=0;
+                time = setInterval(function () {
+                    leader += (target - leader) / 10;
+                    window.scrollTo(0, leader);
+          if(target==leader){
+              clearInterval(time);
+          }
+                }, 20)
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="gotop" class="top">
+    <img src="images/QQ图片20160806161203.jpg" alt="">
+</div>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+<p>阿克苏就噶不开机不回</p><br>
+</body>
+</html>

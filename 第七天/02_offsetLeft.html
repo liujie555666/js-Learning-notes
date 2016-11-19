@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #yeye{
+            margin: 50px;
+            background-color: red;
+            /*position: relative;*/
+        }
+        #father{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            padding: 100px;
+            margin: 50px;
+            /*position: relative;*/
+        }
+        #son{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            padding: 100px;
+            margin: 50px;
+            background-color: purple;
+        }
+
+    </style>
+</head>
+<body>
+<div id="yeye">
+    <div id="father">
+        <div id="son"></div>
+    </div>
+</div>
+<script>
+    var son=document.getElementById("son");
+    var yeye=document.getElementById("yeye");
+    var father=document.getElementById("father");
+    //如果当前盒子父类和祖辈都没有定位的话 offsetLeft取值是以body为参考物.若有定位则是以最近的定位为参考物(不包括他自己),如果有边框不包括边框.
+    console.log(son.offsetLeft);
+</script>
+</body>
+</html>

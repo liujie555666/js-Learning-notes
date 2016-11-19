@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            margin: 50px;
+        }
+        #demo{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: auto;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<span id="demo"></span>
+<div id="text">
+    快结婚那不素和爸爸理解 立刻就出现能不viuhvbiub结婚几年不见灳瘎好不可几乎不不加班结婚女孩给  女女
+    快结婚那不素和爸爸理解 立刻就出现能不viuhvbiub结婚几年不见灳瘎好不可几乎不不加班结婚女孩给  女女
+    快结婚那不素和爸爸理解 立刻就出现能不viuhvbiub结婚几年不见灳瘎好不可几乎不不加班结婚女孩给  女女
+    快结婚那不素和爸爸理解 立刻就出现能不viuhvbiub结婚几年不见灳瘎好不可几乎不不加班结婚女孩给  女女
+    快结婚那不素和爸爸理解 立刻就出现能不viuhvbiub结婚几年不见灳瘎好不可几乎不不加班结婚女孩给  女女
+</div>
+<script>
+    var box=document.getElementById("text");
+    var span=document.getElementById("demo");
+    box.onmouseup=function (event) {
+        span.style.display="block";
+        var event=event||window.event;
+        var x=event.clientX;
+        var y=event.clientY;
+        span.style.top=y+"px";
+        span.style.left=x+"px";
+//    alert(window.getSelection());
+        var txt;
+        if(window.getSelection)
+            txt=window.getSelection().toString();else txt=document.selection.createRange().text;
+        span.innerHTML=txt;
+
+        alert(document.selection.createRange().text);//ie678
+    }
+    document.onmousedown=function (event) {
+        var event=event||window.event;
+        var targetid=event.target?event.target.id:event.srcElement;
+        if(targetid!="demo"){
+            span.style.display="none";
+        }
+    }
+
+</script>
+</body>
+</html>

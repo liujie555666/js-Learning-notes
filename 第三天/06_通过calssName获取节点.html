@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            border: 1px solid #ccc;
+        }
+        /*.demo{*/
+            /*background-color: red;*/
+        /*}*/
+    </style>
+    <script>
+        onload=function () {
+            var divdemos=mygetElementsByClassName("demo");
+//            alert(divdemos.length);
+            for ()
+//            通过类名来获取元素节点 但ie5,6,7,8(不支持)
+//  ie9开始支持
+            function mygetElementsByClassName(classname) {
+//                判断浏览器是否支持
+                 if(document.getElementsByClassName)
+                 {
+//                     如果支持
+                     return document.getElementsByClassName(classname);
+                 }
+//                 如果不支持,获取所有节点.
+                var doms=document.getElementsByTagName("*");
+                var arr=[];
+//之后找出类名的节点.
+                for(var i=0,len=doms.length;i<len;i++)
+                {
+                 if (doms[i].className==classname)
+                     arr.push(doms[i]);
+                }return arr;
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="demo"></div>
+<div class="demo"></div>
+<div class="demo"></div>
+<div></div>
+<div></div>
+<div></div>
+<div class="demo"></div>
+<div class="demo"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var mans=[{name:刘德华,age:60,address:"HK"},{name:张学友,age:59,address:"HK"},{name:张涵予,age:40,address:"BJ"},{name:刘亦菲,age:35,addree:"SH"}];
+    for(var i=0;i<mans.length;i++){
+        console.log(mans[i].name);
+    console.log(mans[i]["age"]);
+    }
+    for(var k in mans){
+        for(var jk in mans[k]){
+            console.log(mans[k][jk]);
+        }
+    }
+</script>
+</body>
+</html>

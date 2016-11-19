@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<div class="all" id='all'>
+    <div class="screen">
+        <ul id="ul">
+            <li><img src="images/taobao/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/taobao/5.jpg" width="500" height="200"/></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var all = document.getElementById("all");
+    var ol = document.createElement("ol");
+    all.children[0].appendChild(ol);
+    var oll = document.getElementsByTagName("ol")[0];
+    var ul = document.getElementById("ul");
+    var ullis = ul.getElementsByTagName("li");
+    function animate(obj, endPoint, ms) {
+        clearInterval(obj.timer);
+        var speed = obj.offsetLeft<endPoint ? 30 : -30;
+        obj.timer = setInterval(function () {
+            var result = endPoint - obj.offsetLeft;
+            obj.style.left = obj.offsetLeft + speed + "px";
+            if (Math.abs(result) <= 30) {
+                clearInterval(obj.timer);
+                obj.style.left = endPoint + "px";
+            }
+        }, ms)
+
+    }
+    for (var i = 0, len = ullis.length; i < len; i++) {
+        var lil = document.createElement("li");
+        lil.innerHTML = i + 1;
+        oll.appendChild(lil);
+        lil.sx = i;
+//        endP=ul.children[0].offsetWidth*i;
+//        animate(ul,-endP,30);
+        lil.onmouseover = function () {
+            var olli = oll.getElementsByTagName("li");
+            for (var j = 0; j < len; j++) {
+                olli[j].setAttribute("class", "");
+            }
+            this.setAttribute("class", "current");
+            endP = ul.children[0].offsetWidth * this.sx;
+            animate(ul, -endP, 10);
+            key=squ=this.sx;
+        }
+    }
+    var ollis = oll.getElementsByTagName("li");
+    ollis[0].setAttribute("class", "current");
+    var key = 0;
+    timer=setInterval(go,1250);
+    var squ=0;
+    var li=ullis[0].cloneNode(true);
+    ul.appendChild(li);
+    function go() {
+        key++;
+        if (key > ullis.length-1) {
+            ul.style.left = 0;
+            key = 1;
+        }
+        animate(ul, -key * 500, 10);
+        squ++;
+        if(squ>ollis.length - 1){
+            squ=0;
+        }
+        for(var j=0;j<ollis.length;j++){
+            ollis[j].setAttribute("class","");
+        }
+        ollis[squ].setAttribute("class","current");
+    }
+    all.onmouseout = function () {
+        timer = setInterval(go, 1250);
+    }
+    all.onmouseover = function () {
+        clearInterval(timer);
+    }
+</script>
+</body>
+</html>
